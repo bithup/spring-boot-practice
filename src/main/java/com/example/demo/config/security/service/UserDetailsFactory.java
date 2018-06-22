@@ -16,17 +16,17 @@ public class UserDetailsFactory {
     private UserDetailsFactory() {
     }
 
-    public static UserDetailsImpl create(User user) {
-        return new UserDetailsImpl(
-                user.getId().toString(),
-                user.getUsername(),
-                user.getPassword(),
-                user.getTelephone(),
-                user.getEmail(),
-                mapToGrantedAuthorities(user.getRoles()),
-                user.getLastPasswordResetDate()
-        );
-    }
+//    public static UserDetailsImpl create(User user) {
+//        return new UserDetailsImpl(
+//                user.getId().toString(),
+//                user.getUsername(),
+//                user.getPassword(),
+//                user.getTelephone(),
+//                user.getEmail(),
+//                mapToGrantedAuthorities(user.getRoles()),
+//                user.getLastPasswordResetDate()
+//        );
+//    }
 
     /**
      * 角色转换

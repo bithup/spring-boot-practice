@@ -43,15 +43,40 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+//    @Override
+//    protected UserDetailsService userDetailsService() {
+//        return super.userDetailsService();
+//    }
+//
+//    @Override
+//    public UserDetailsService userDetailsServiceBean() throws Exception {
+//        return super.userDetailsServiceBean();
+//    }
 
+    /**
+     * 定义获取用户认证信息的方式，和加密的方式
+     * @param auth
+     * @throws Exception
+     */
     @Autowired
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //实现UserDetailService接口
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
         //或者使用自定义身份验证组件
         //auth.authenticationProvider(new CustomAuthenticationProvider(userDetailsService,bCryptPasswordEncoder));
+        //内存中获取认证信息
+        //auth.inMemoryAuthentication().withUser("admin").password("123456").roles("user");
+        //从数据库获取认证信息
+        //auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(query).authoritiesByUsernameQuery(query);
+
     }
 
+
+    /**
+     * 定义安全策略，
+     * @param httpSecurity
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()

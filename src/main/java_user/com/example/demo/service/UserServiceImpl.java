@@ -25,7 +25,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Long id) {
         Optional<User> o = userRepository.findById(id);
-        User u = o.get();
+        //如果查询不到结果，Optional的get()方法会报异常，使用orElse()方法
+        User u = o.orElse(null);
         return u;
     }
 }

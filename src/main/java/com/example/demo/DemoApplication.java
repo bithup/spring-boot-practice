@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import javax.sql.DataSource;
 //不需要数据库时，没有配置数据库信息，排除自动配置，否则会报错
 //@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@SpringBootApplication()
+@SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
 	@Autowired

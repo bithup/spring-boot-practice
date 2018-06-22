@@ -68,7 +68,12 @@ public class UserController extends BaseController {
     public ResponseData selectUser(
             @ApiParam(value = "用户ID") @PathVariable(name = "id") Long id
     ) {
-        return successData("查询成功", userService.findById(id));
+        User user = userService.findById(id);
+        if (user == null) {
+            return failureData("用户不存在");
+        }
+        return successData("查询成功", user);
+        //认证成功的用户，不应该存在查询失败的情况
     }
 
     /**

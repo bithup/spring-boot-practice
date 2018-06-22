@@ -71,7 +71,7 @@ public class User implements Serializable {
     @Column(name = "create_date", nullable = false)
     private Date createDate;
 
-    private List<Role> roles;
+    //private List<Role> roles;
 
     @Column(name = "last_password_reset_date")
     private Date lastPasswordResetDate;
